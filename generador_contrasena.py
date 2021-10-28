@@ -1,22 +1,25 @@
 import random
+import string
 
 
 def generar_contrasena():
-    mayusculas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q' , 'R', 'S' ,'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    minuscula = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q' , 'r', 's' ,'t', 'u', 'v', 'w', 'x', 'y', 'z']
-    simbolos = ['!', '#', '$', '&', '/', '(', ')', '%']
-    numeros = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+    #Asi optenemos las letras completas en mayuscula y minuscula
+    letras = list(string.ascii_letters)
+    #lista de los simbolos especiales.
+    simbolos = list(string.punctuation)
+    #lista de numeros
+    numeros = list(string.digits)
 
-    caracteres = mayusculas + minuscula + simbolos + numeros
+    caracteres = letras + simbolos + numeros
 
     contrasena = []
 
     for i in range(15):
-        caracter_random = random.choice(caracteres)
+        caracter_random = random.choice(caracteres) #Con la funcion choice elijo un caracter al azar.
         contrasena.append(caracter_random)
 
 
-    contrasena = "".join(contrasena)
+    contrasena = "".join(contrasena)#Con este metodo se convierte una lista a caracteres
     return contrasena
 
 
